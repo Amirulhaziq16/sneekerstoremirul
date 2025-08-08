@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <title>Kuiz BM Tingkatan 3</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f3e5f5, #ede7f6);
+      padding: 40px;
+      color: #4a148c;
+    }
+    h1 {
+      text-align: center;
+      color: #6a1b9a;
+      margin-bottom: 30px;
+    }
+    .quiz-container {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question h3 {
+      margin-bottom: 10px;
+    }
+    .question label {
+      display: block;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 25px;
+      background-color: #6a1b9a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #4a148c;
+    }
+    #result {
+      margin-top: 30px;
+      font-size: 18px;
+      text-align: center;
+      font-weight: bold;
+    }
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      text-decoration: none;
+      color: #6a1b9a;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Kuiz BM Tingkatan 3</h1>
+
+  <div class="quiz-container">
+    <form id="quizForm">
+      <div class="question">
+        <h3>1. Apakah maksud peribahasa “bagai aur dengan tebing”?</h3>
+        <label><input type="radio" name="q1" value="a"> Hidup susah</label>
+        <label><input type="radio" name="q1" value="b"> Saling membantu</label>
+        <label><input type="radio" name="q1" value="c"> Sering bergaduh</label>
+        <label><input type="radio" name="q1" value="d"> Malas berusaha</label>
+      </div>
+
+      <div class="question">
+        <h3>2. Pilih ayat yang betul dari segi tatabahasa:</h3>
+        <label><input type="radio" name="q2" value="a"> Mereka telah pun sampai ke sekolah semalam.</label>
+        <label><input type="radio" name="q2" value="b"> Mereka akan pun sampai ke sekolah semalam.</label>
+        <label><input type="radio" name="q2" value="c"> Mereka telah sampai ke sekolah esok.</label>
+        <label><input type="radio" name="q2" value="d"> Mereka pun telah sampai ke sekolah tadi.</label>
+      </div>
+
+      <button type="button" onclick="semakJawapan()">Semak Jawapan</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <a class="back" href="tingkatan3.html">⬅ Kembali ke Tingkatan 3</a>
+
+  <script>
+    function semakJawapan() {
+      const jawapan = {
+        q1: 'b',
+        q2: 'a'
+      };
+
+      let markah = 0;
+      const borang = document.getElementById("quizForm");
+      const result = document.getElementById("result");
+
+      for (let soalan in jawapan) {
+        const pilihan = borang.querySelector(`input[name="${soalan}"]:checked`);
+        if (pilihan && pilihan.value === jawapan[soalan]) {
+          markah++;
+        }
+      }
+
+      result.innerHTML = "Markah anda: " + markah + " / " + Object.keys(jawapan).length;
+    }
+  </script>
+
+</body>
+</html>

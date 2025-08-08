@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <title>Kuiz Sains Tingkatan 4</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f3e5f5, #e1bee7);
+      padding: 40px;
+      color: #4a148c;
+    }
+    h1 {
+      text-align: center;
+      color: #6a1b9a;
+      margin-bottom: 30px;
+    }
+    .quiz-container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+    .question {
+      margin-bottom: 25px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    button {
+      background-color: #ab47bc;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #8e24aa;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    .back {
+      display: block;
+      margin-top: 30px;
+      text-align: center;
+      color: #4a148c;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Kuiz Sains Tingkatan 4</h1>
+
+  <div class="quiz-container">
+    <div class="question">
+      <p>1. Apakah organ utama sistem pernafasan manusia?</p>
+      <label><input type="radio" name="q1" value="0"> Jantung</label>
+      <label><input type="radio" name="q1" value="1"> Paru-paru</label>
+      <label><input type="radio" name="q1" value="0"> Hati</label>
+    </div>
+
+    <div class="question">
+      <p>2. Air membeku pada suhu berapa darjah Celsius?</p>
+      <label><input type="radio" name="q2" value="1"> 0°C</label>
+      <label><input type="radio" name="q2" value="0"> 100°C</label>
+      <label><input type="radio" name="q2" value="0"> -10°C</label>
+    </div>
+
+    <button onclick="checkAnswers()">Semak Jawapan</button>
+    <p id="result"></p>
+  </div>
+
+  <a class="back" href="tingkatan4.html">⬅ Kembali ke Tingkatan 4</a>
+
+  <script>
+    function checkAnswers() {
+      const answers = document.querySelectorAll('input[type="radio"]:checked');
+      let score = 0;
+      answers.forEach(answer => {
+        score += parseInt(answer.value);
+      });
+      document.getElementById("result").textContent = "Markah anda: " + score + " / 2";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <title>Kuiz Matematik Tingkatan 5</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f3e5f5, #e1bee7);
+      padding: 40px;
+      color: #4a148c;
+    }
+    h1 {
+      text-align: center;
+      color: #6a1b9a;
+      margin-bottom: 30px;
+    }
+    .quiz-container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+    .question {
+      margin-bottom: 25px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    button {
+      background-color: #ab47bc;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #8e24aa;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    .back {
+      display: block;
+      margin-top: 30px;
+      text-align: center;
+      color: #4a148c;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Kuiz Matematik Tingkatan 5</h1>
+
+  <div class="quiz-container">
+    <form id="quizForm">
+
+      <!-- Soalan 1 -->
+      <div class="question">
+        <p>1. Jika x = 4, apakah nilai 3x + 2?</p>
+        <label><input type="radio" name="q1" value=""> 10</label>
+        <label><input type="radio" name="q1" value="correct"> 14</label>
+        <label><input type="radio" name="q1" value=""> 18</label>
+      </div>
+
+      <!-- Soalan 2 -->
+      <div class="question">
+        <p>2. Apakah kecerunan garis lurus y = 5x - 7?</p>
+        <label><input type="radio" name="q2" value="correct"> 5</label>
+        <label><input type="radio" name="q2" value=""> -7</label>
+        <label><input type="radio" name="q2" value=""> 7</label>
+        <label><input type="radio" name="q2" value=""> 0</label>
+      </div>
+
+      <!-- Soalan 3 -->
+      <div class="question">
+        <p>3. Cari nilai x jika 2x - 3 = 7</p>
+        <label><input type="radio" name="q3" value=""> 2</label>
+        <label><input type="radio" name="q3" value="correct"> 5</label>
+        <label><input type="radio" name="q3" value=""> 7</label>
+      </div>
+
+      <!-- Soalan 4 -->
+      <div class="question">
+        <p>4. Cari hasil darab bagi (x + 2)(x - 3)</p>
+        <label><input type="radio" name="q4" value="correct"> x² - x - 6</label>
+        <label><input type="radio" name="q4" value=""> x² - 6</label>
+        <label><input type="radio" name="q4" value=""> x² - x + 6</label>
+        <label><input type="radio" name="q4" value=""> x² + x - 6</label>
+      </div>
+
+      <button type="button" onclick="checkAnswers()">Semak Jawapan</button>
+    </form>
+
+    <p id="result"></p>
+  </div>
+
+  <a class="back" href="tingkatan5.html">⬅ Kembali ke Tingkatan 5</a>
+
+  <script>
+    function checkAnswers() {
+      const totalQuestions = 4;
+      let score = 0;
+
+      for (let i = 1; i <= totalQuestions; i++) {
+        const radios = document.getElementsByName('q' + i);
+        for (let j = 0; j < radios.length; j++) {
+          if (radios[j].checked && radios[j].value === 'correct') {
+            score++;
+          }
+        }
+      }
+
+      document.getElementById("result").textContent = 
+        "Markah anda: " + score + " / " + totalQuestions;
+    }
+  </script>
+
+</body>
+</html>
